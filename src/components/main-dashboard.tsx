@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Card} from '@/components/ui/card'
-import {Camera, ChartBarIncreasing, Droplets, FileVideo, LightbulbIcon, Thermometer, Video} from 'lucide-react'
+import {Camera, ChartBarIncreasing, FileVideo, LightbulbIcon, Thermometer, Video} from 'lucide-react'
 import {Area, AreaChart, CartesianGrid, XAxis} from 'recharts'
 import {
 	type ChartConfig,
@@ -233,8 +233,8 @@ export function MainDashboard() {
 			</div>
 			
 			<div className="grid gap-4 content-start">
-				<Card className="bg-white/10 backdrop-blur-md border-0 overflow-hidden text-white p-4">
-					<div className="flex items-center justify-between mb-2">
+				<Card className="bg-white/10 backdrop-blur-md border-0 overflow-hidden text-white p-4 gap-2">
+					<div className="flex items-center justify-between">
 						<h3 className="text-sm font-medium">Camera</h3>
 						<div className="flex items-center">
 							<div className="h-3 w-3 rounded-full bg-lime-400 mr-2"></div>
@@ -257,15 +257,14 @@ export function MainDashboard() {
 					</div>
 				</Card>
 				
-				<Card className="bg-white/10 backdrop-blur-md border-0 p-4 text-white">
-					<div className="mb-4 flex justify-between items-center">
+				<Card className="bg-white/10 backdrop-blur-md border-0 p-4 gap-4 text-white">
+					<div className="flex justify-between items-center">
 						<h3 className="text-lg font-medium">Last Videos</h3>
 						<a href="#" className="text-xs font-medium">View All</a>
 					</div>
 					
 					<div className="grid grid-cols-2 gap-4">
-						
-						{Array.from({length: 6}).map((_, index) => (
+						{Array.from({length: 8}).map((_, index) => (
 							<div
 								key={index}
 								data-active={index !== 0}
