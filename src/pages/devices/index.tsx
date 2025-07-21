@@ -14,7 +14,7 @@ type Device = {
 	category: string
 }
 
-export function DeviceList() {
+export function DeviceListPage() {
 	const [devices, setDevices] = useState<Device[]>([
 		{ id: "1", text: "Clean kitchen", completed: false, category: "agent" },
 		{ id: "2", text: "Pay utility bills", completed: true, category: "cctv" },
@@ -52,17 +52,6 @@ export function DeviceList() {
 		if (filter === "active") return !todo.completed
 		return todo.category === filter
 	})
-	
-	const getCategoryColor = (category: string) => {
-		switch (category) {
-			case "agent":
-				return "bg-blue-500"
-			case "cctv":
-				return "bg-green-500"
-			default:
-				return "bg-gray-500"
-		}
-	}
 	
 	return (
 		<div className="grid gap-4 md:grid-cols-2">

@@ -35,7 +35,7 @@ type User = {
 	}
 }
 
-export function UserManagement() {
+export function UserManagementPage() {
 	const [users, setUsers] = useState<User[]>([
 		{
 			id: "1",
@@ -135,22 +135,6 @@ export function UserManagement() {
 	
 	const toggleUserStatus = (id: string) => {
 		setUsers(users.map((user) => (user.id === id ? { ...user, isActive: !user.isActive } : user)))
-	}
-	
-	const updateUserPermission = (userId: string, permission: keyof User["permissions"], value: boolean) => {
-		setUsers(
-			users.map((user) =>
-				user.id === userId
-					? {
-						...user,
-						permissions: {
-							...user.permissions,
-							[permission]: value,
-						},
-					}
-					: user,
-			),
-		)
 	}
 	
 	const getRoleLabel = (role: string) => {
@@ -397,22 +381,6 @@ export function UserManagement() {
 																			setEditingUser({
 																				...editingUser,
 																				permissions: { ...editingUser.permissions, manageExpenses: checked },
-																			})
-																		}
-																		className="data-[state=checked]:bg-lime-400"
-																	/>
-																</div>
-																<div className="flex items-center justify-between">
-																	<div>
-																		<Label>Manage Todos</Label>
-																		<p className="text-sm text-gray-400">Can create and manage todo items</p>
-																	</div>
-																	<Switch
-																		checked={editingUser.permissions.manageTodos}
-																		onCheckedChange={(checked) =>
-																			setEditingUser({
-																				...editingUser,
-																				permissions: { ...editingUser.permissions, manageTodos: checked },
 																			})
 																		}
 																		className="data-[state=checked]:bg-lime-400"
